@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/yellow"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.Light"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="60dp"
+        android:paddingBottom="60dp"
+        android:layout_margin="16dp"
+        android:background="@drawable/submission_card"
+        android:layout_centerInParent="true">
+
+        <TextView
+            android:id="@+id/grievance_type_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+
+        <EditText
+            android:id="@+id/grievance_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/submission_title"
+            android:drawableStart="@drawable/submission_ic_title"
+            android:drawablePadding="12dp"
+            android:padding="12dp"
+            android:background="@drawable/submission_input_background"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"/>
+
+        <EditText
+            android:id="@+id/grievance_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/submission_description"
+            android:drawableStart="@drawable/submission_ic_description"
+            android:drawablePadding="12dp"
+            android:padding="12dp"
+            android:background="@drawable/submission_input_background"
+            android:layout_marginBottom="16dp"/>
+
+        <Button
+            android:id="@+id/grievance_submit_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/yellow"
+            android:text="Submit Grievance"
+            android:textColor="@color/cardview_dark_background"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

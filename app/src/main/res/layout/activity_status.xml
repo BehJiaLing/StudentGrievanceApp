@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/yellow"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.Light"/>
+
+    <LinearLayout
+        android:id="@+id/details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:layout_margin="16dp"
+        android:layout_below="@+id/toolbar"
+        android:background="@drawable/status_card">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="15dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/status_type_stoke"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="3dp"
+                android:paddingBottom="3dp"
+                android:layout_centerVertical="true">
+
+                <TextView
+                    android:id="@+id/categoryTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/dateTimeTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="@android:color/darker_gray"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"/>
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/titleTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="2dp"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="13dp"/>
+
+        <TextView
+            android:id="@+id/descriptionTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textColor="@android:color/darker_gray"
+            android:layout_marginBottom="15dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/status_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginLeft="16dp"
+        android:background="@drawable/status_card"
+        android:layout_below="@+id/details">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/status_title"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"/>
+
+        <!-- Horizontal Status Bar with Connecting Line -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="20dp">
+
+            <!-- Connecting Line -->
+            <View
+                android:id="@+id/line1"
+                android:layout_width="0dp"
+                android:layout_height="2dp"
+                android:layout_weight="0.5"
+                android:background="@android:color/darker_gray" />
+
+            <!-- Pending Indicator -->
+            <View
+                android:id="@+id/pendingIndicator"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:background="@color/pending_color"
+                android:layout_marginEnd="5dp"
+                android:layout_marginStart="5dp"/>
+
+            <!-- Connecting Line -->
+            <View
+                android:id="@+id/line2"
+                android:layout_width="0dp"
+                android:layout_height="2dp"
+                android:layout_weight="1"
+                android:background="@android:color/darker_gray" />
+
+            <!-- In Progress Indicator -->
+            <View
+                android:id="@+id/inProgressIndicator"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:background="@color/in_progress_color"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp" />
+
+            <!-- Connecting Line -->
+            <View
+                android:id="@+id/line3"
+                android:layout_width="0dp"
+                android:layout_height="2dp"
+                android:layout_weight="1"
+                android:background="@android:color/darker_gray" />
+
+            <!-- Resolved Indicator -->
+            <View
+                android:id="@+id/resolvedIndicator"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:background="@color/resolved_color"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp" />
+
+            <!-- Connecting Line -->
+            <View
+                android:id="@+id/line4"
+                android:layout_width="0dp"
+                android:layout_height="2dp"
+                android:layout_weight="1"
+                android:background="@android:color/darker_gray" />
+
+            <!-- Closed Indicator -->
+            <View
+                android:id="@+id/closedIndicator"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:background="@color/closed_color"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"/>
+
+            <!-- Connecting Line -->
+            <View
+                android:id="@+id/line5"
+                android:layout_width="0dp"
+                android:layout_height="2dp"
+                android:layout_weight="0.5"
+                android:background="@android:color/darker_gray" />
+
+        </LinearLayout>
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="4"
+            android:rowCount="1"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="30dp">
+
+            <TextView
+                android:layout_width="87dp"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:text="Pending"
+                android:gravity="center"
+                android:textColor="@android:color/darker_gray"/>
+
+            <TextView
+                android:layout_width="87dp"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:text="In Progress"
+                android:gravity="center"
+                android:textColor="@android:color/darker_gray"/>
+
+            <TextView
+                android:layout_width="87dp"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:text="Resolved"
+                android:gravity="center"
+                android:textColor="@android:color/darker_gray"/>
+
+            <TextView
+                android:layout_width="87dp"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:text="Closed"
+                android:gravity="center"
+                android:textColor="@android:color/darker_gray"/>
+
+        </GridLayout>
+
+        <Button
+            android:id="@+id/status_update_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/status_update_text"
+            android:textColor="@color/black"
+            android:visibility="gone"
+            android:backgroundTint="@color/yellow"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

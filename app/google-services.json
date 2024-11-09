@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "642167979240",
+    "firebase_url": "https://grievance-564f9-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "grievance-564f9",
+    "storage_bucket": "grievance-564f9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:642167979240:android:e0ab0ec83f3137937d9d5d",
+        "android_client_info": {
+          "package_name": "com.example.grievanceapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCmcMAlFfVJvf8dkUT8hKjk3jQSOuJGz8g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:642167979240:android:6b12cfb1a65c73097d9d5d",
+        "android_client_info": {
+          "package_name": "com.example.studentgrievanceapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCmcMAlFfVJvf8dkUT8hKjk3jQSOuJGz8g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:642167979240:android:a55289a9ffc2741b7d9d5d",
+        "android_client_info": {
+          "package_name": "student.inti.assignment"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCmcMAlFfVJvf8dkUT8hKjk3jQSOuJGz8g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

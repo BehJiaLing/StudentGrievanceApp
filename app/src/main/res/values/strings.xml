@@ -1,0 +1,45 @@
+<resources>
+    <string name="app_name">Student Grievance App</string>
+    <string name="login_text">Student Grievance App Login</string>
+    <string name="login_email">Email</string>
+    <string name="login_password">Password</string>
+    <string name="login_button_text">Login Now!</string>
+    <string name="home_type_text">Select the Grievance Type</string>
+    <string name="drawer_open">Open Drawer</string>
+    <string name="drawer_close">Close Drawer</string>
+    <string name="profile_enter_current_password">Enter your current password to reset password</string>
+    <string name="profile_edit_phone">Enter your new phone number</string>
+    <string name="home_grievance_title">New Grievance Request</string>
+    <string name="home_type_academic">Academic</string>
+    <string name="home_type_administrative">Administrative</string>
+    <string name="home_type_facilities">Facilities</string>
+    <string name="home_type_food">Food</string>
+    <string name="home_type_financial">Financial</string>
+    <string name="home_type_harassment">Harassment</string>
+    <string name="home_type_it">IT</string>
+    <string name="home_type_others">Others</string>
+    <string name="home_grievance_all">View all grievances > </string>
+    <string name="home_grievance_title_all">Your Grievances</string>
+    <string name="home_grievance_total" />
+    <string name="home_grievance_completed">Closed</string>
+    <string name="home_grievance_confirmation">Resolved</string>
+    <string name="home_grievance_inProgress">In Progress</string>
+    <string name="home_grievance_pending">Pending</string>
+    <string name="submission_title">Title</string>
+    <string name="submission_description">Description</string>
+    <string name="status_update_text"><![CDATA[Confirm & Closed]]></string>
+    <string name="status_title">Grievance Status</string>
+    <string name="profile_edit_password">Enter your new password...</string>
+    <string-array name="grievance_filter_types">
+        <item>All</item>
+        <item>Food</item>
+        <item>Facility</item>
+        <item>Academic</item>
+        <item>Administrative</item>
+        <item>Harassment</item>
+        <item>Financial</item>
+        <item>IT</item>
+        <item>Others</item>
+    </string-array>
+
+</resources>
