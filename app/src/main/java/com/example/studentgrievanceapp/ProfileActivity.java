@@ -34,7 +34,6 @@ public class ProfileActivity extends AppCompatActivity {
     private String userEmail;
     private TextView profileUsername, profileEmail, profilePhone, profilePassword;
     private ImageView editIcon, editIcon2;
-    private boolean isPasswordVisible = false;
     private ProgressDialog progressDialog;
 
     @Override
