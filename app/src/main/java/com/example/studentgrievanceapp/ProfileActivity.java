@@ -117,17 +117,49 @@ public class ProfileActivity extends AppCompatActivity {
         View dialogView = inflater.inflate(R.layout.profile_dialog_reauthenticate, null);
 
         EditText currentPassword = dialogView.findViewById(R.id.profile_current_password);
+        ImageView togglePasswordVisibility = dialogView.findViewById(R.id.togglePasswordVisibility);
+
+        // Flag to track password visibility state
+        final boolean[] isPasswordVisible = {false};
+
+        // Set up toggle button click listener
+        togglePasswordVisibility.setOnClickListener(v -> {
+            if (isPasswordVisible[0]) {
+                // Hide the password
+                currentPassword.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                togglePasswordVisibility.setImageResource(R.drawable.profile_ic_visibility_off); // Set closed eye icon
+            } else {
+                // Show the password
+                currentPassword.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+                togglePasswordVisibility.setImageResource(R.drawable.profile_ic_visibility); // Set open eye icon
+            }
+            // Move cursor to the end of the text
+            currentPassword.setSelection(currentPassword.getText().length());
+            isPasswordVisible[0] = !isPasswordVisible[0];
+        });
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setView(dialogView)
                 .setCancelable(true)
-                .setPositiveButton("Next", (dialog, id) -> {
-                    String password = currentPassword.getText().toString();
-                    reauthenticateUser(password);
-                })
+                .setPositiveButton("Next", null) // Set listener to null for custom handling
                 .setNegativeButton("Cancel", (dialog, id) -> dialog.dismiss());
 
         AlertDialog alertDialog = builder.create();
+
+        // Custom click listener to handle empty password check
+        alertDialog.setOnShowListener(dialog -> {
+            alertDialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener(v -> {
+                String password = currentPassword.getText().toString();
+                if (password.isEmpty()) {
+                    currentPassword.setError("Password cannot be empty");
+                } else {
+                    // Call the reauthentication method if password is not empty
+                    reauthenticateUser(password);
+                    alertDialog.dismiss();
+                }
+            });
+        });
+
         alertDialog.show();
     }
 
@@ -154,6 +186,26 @@ public class ProfileActivity extends AppCompatActivity {
         View dialogView = inflater.inflate(R.layout.profile_dialog_edit_password, null);
 
         EditText newPassword = dialogView.findViewById(R.id.profile_new_password);
+        ImageView togglePasswordVisibility = dialogView.findViewById(R.id.togglePasswordVisibility);
+
+        // Flag to track password visibility state
+        final boolean[] isPasswordVisible = {false};
+
+        // Set up toggle button click listener
+        togglePasswordVisibility.setOnClickListener(v -> {
+            if (isPasswordVisible[0]) {
+                // Hide the password
+                newPassword.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                togglePasswordVisibility.setImageResource(R.drawable.profile_ic_visibility_off); // Set closed eye icon
+            } else {
+                // Show the password
+                newPassword.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+                togglePasswordVisibility.setImageResource(R.drawable.profile_ic_visibility); // Set open eye icon
+            }
+            // Move cursor to the end of the text
+            newPassword.setSelection(newPassword.getText().length());
+            isPasswordVisible[0] = !isPasswordVisible[0];
+        });
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setView(dialogView)
@@ -165,6 +217,20 @@ public class ProfileActivity extends AppCompatActivity {
                 .setNegativeButton("Cancel", (dialog, id) -> dialog.dismiss());
 
         AlertDialog alertDialog = builder.create();
+
+        alertDialog.setOnShowListener(dialog -> {
+            alertDialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener(v -> {
+                String password = newPassword.getText().toString();
+                if (password.isEmpty()) {
+                    newPassword.setError("Password cannot be empty");
+                } else {
+                    // Call the reauthentication method if password is not empty
+                    reauthenticateUser(password);
+                    alertDialog.dismiss();
+                }
+            });
+        });
+
         alertDialog.show();
     }
 
@@ -235,6 +301,20 @@ public class ProfileActivity extends AppCompatActivity {
                 .setNegativeButton("Cancel", (dialog, id) -> dialog.dismiss());
 
         AlertDialog alertDialog = builder.create();
+
+        alertDialog.setOnShowListener(dialog -> {
+            alertDialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener(v -> {
+                String password = newPhone.getText().toString();
+                if (password.isEmpty()) {
+                    newPhone.setError("Password cannot be empty");
+                } else {
+                    // Call the reauthentication method if password is not empty
+                    reauthenticateUser(password);
+                    alertDialog.dismiss();
+                }
+            });
+        });
+
         alertDialog.show();
     }
 

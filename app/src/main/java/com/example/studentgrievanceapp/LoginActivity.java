@@ -3,10 +3,13 @@ package com.example.studentgrievanceapp;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.InputType;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -20,6 +23,8 @@ public class LoginActivity extends AppCompatActivity {
 
     private EditText emailEditText, passwordEditText;
     private Button loginButton;
+    private ImageView togglePasswordVisibility;
+    private boolean isPasswordVisible = false;
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
     private ProgressDialog progressDialog;
@@ -39,8 +44,22 @@ public class LoginActivity extends AppCompatActivity {
 
         emailEditText = findViewById(R.id.login_username);
         passwordEditText = findViewById(R.id.login_password);
-        loginButton = findViewById(R.id.loginButton);
+        togglePasswordVisibility = findViewById(R.id.togglePasswordVisibility);
 
+        togglePasswordVisibility.setOnClickListener(v -> {
+            if (isPasswordVisible) {
+                passwordEditText.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                togglePasswordVisibility.setImageResource(R.drawable.profile_ic_visibility_off);
+            } else {
+                passwordEditText.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+                togglePasswordVisibility.setImageResource(R.drawable.profile_ic_visibility);
+            }
+            // Move cursor to the end of the text
+            passwordEditText.setSelection(passwordEditText.getText().length());
+            isPasswordVisible = !isPasswordVisible;
+        });
+
+        loginButton = findViewById(R.id.loginButton);
         loginButton.setOnClickListener(v -> {
             String email = emailEditText.getText().toString().trim();
             String password = passwordEditText.getText().toString().trim();
