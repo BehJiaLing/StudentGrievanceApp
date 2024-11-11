@@ -66,6 +66,14 @@ public class SubmissionActivity extends AppCompatActivity {
 
         String title = titleEditText.getText().toString().trim();
         String description = descriptionEditText.getText().toString().trim();
+
+        // Check if the title or description is empty
+        if (title.isEmpty() || description.isEmpty()) {
+            progressDialog.dismiss();
+            showAlertDialog("Error", "Please enter both title and description.");
+            return; // Exit the method if validation fails
+        }
+
         String email = mAuth.getCurrentUser().getEmail();
         Timestamp dateTime = Timestamp.now();
         String status = "Pending";
